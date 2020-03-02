@@ -1,5 +1,6 @@
 package com.example.coroutines
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ProgressBar
@@ -29,6 +30,11 @@ class MainActivity : AppCompatActivity() {
                 initjob()
             }
             job_progress_bar.startJobOrCancel(job)
+        }
+
+        job_button2.setOnClickListener {
+            intent = Intent(this, Lesson2::class.java)
+            startActivity(intent)
         }
     }
 
