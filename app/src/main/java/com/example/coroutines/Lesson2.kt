@@ -1,8 +1,10 @@
 package com.example.coroutines
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_lesson2.*
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.Dispatchers.Main
@@ -22,6 +24,11 @@ class Lesson2 : AppCompatActivity() {
             CoroutineScope(IO).launch {
                 fakeApiRequest()
             }
+        }
+
+        button2.setOnClickListener {
+            intent = Intent(this, NetworkTimeoutsActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -55,7 +62,6 @@ class Lesson2 : AppCompatActivity() {
             setTextOnMainThread("Couldn't get Result #1")
         }
     }
-
 
     private suspend fun getResult1FromApi(): String {
         logThread("getResult1FromApi")
